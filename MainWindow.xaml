@@ -1,0 +1,39 @@
+﻿<Window x:Class="TEST.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TEST"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="225*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="209*"/>
+        </Grid.RowDefinitions>
+        <Button Name="AddB" Content="Thêm" HorizontalAlignment="Left" Height="60" Margin="142,117,0,0" VerticalAlignment="Top" Width="160" FontWeight="Bold" FontSize="18" Click="AddB_Click"/>
+        <Button Name="EditB" Content="Sửa" HorizontalAlignment="Center" Height="60" Margin="0,117,0,0" VerticalAlignment="Top" Width="160 " FontWeight="Bold" FontSize="18" Click="EditB_Click"/>
+        <Button Name="DelB" Content="Xóa" HorizontalAlignment="Left" Height="60" Margin="495,117,0,0" VerticalAlignment="Top" Width="160 " FontWeight="Bold" FontSize="18" Click="DelB_Click"/>
+        <ListView Name="ViewUser" HorizontalAlignment="Center" Margin="0,20,0,19" Width="748" Grid.Row="2"  ItemsSource="{Binding Phrases}" SelectionChanged="ViewUser_SelectionChanged" SelectionMode="Single" AllowDrop="True">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Mã Sinh viên" Width="100" DisplayMemberBinding="{Binding Path=masv}" />
+                    <GridViewColumn Header="Tên Sinh viên" Width="200" DisplayMemberBinding="{Binding Path=name}"/>
+                    <GridViewColumn Header="Số điện thoại" Width="150" DisplayMemberBinding="{Binding Path=phone}"/>
+                    <GridViewColumn Header="Ngày sinh" Width="150" DisplayMemberBinding="{Binding Path=date}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Mã Sinh Viên:" HorizontalAlignment="Left" Height="28" Margin="16,14,0,0" VerticalAlignment="Top" Width="152" FontSize="14" FontWeight="Bold"/>
+        <TextBox Name="Txt1" Text="{Binding Path=masv}" HorizontalAlignment="Left" Height="24" Margin="127,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204"  />
+        <Label Content="Tên Sinh Viên:" HorizontalAlignment="Left" Height="28" Margin="16,60,0,0" VerticalAlignment="Top" Width="106" FontSize="14" FontWeight="Bold"/>
+        <TextBox Name="Txt2"  Text="{Binding Path=name}" HorizontalAlignment="Left" Margin="128,62,0,0" TextWrapping="Wrap" Width="203" Height="24" VerticalAlignment="Top" />
+        <Label Content="Số điện thoại:" HorizontalAlignment="Left" Height="28" Margin="387,16,0,0" VerticalAlignment="Top" Width="109" FontSize="14" FontWeight="Bold"/>
+        <TextBox Name="Txt3" Text="{Binding Path=phone}" HorizontalAlignment="Left" Height="23" Margin="496,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" />
+        <Label Content="Ngày sinh:" HorizontalAlignment="Left" Height="28" Margin="387,60,0,0" VerticalAlignment="Top" Width="108" FontSize="14" FontWeight="Bold"/>
+        <TextBox Name="filtertxt" HorizontalAlignment="Center" Margin="0,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="748" Height="27" Grid.RowSpan="3" Text="" TextChanged="filtertxt_TextChanged"/>
+        <DatePicker Name="txt4"  Text="{Binding Path=masv}" HorizontalAlignment="Left" Margin="495,64,0,0" VerticalAlignment="Top" Width="231"/>
+        <Label Name="test" HorizontalAlignment="Left" Margin="69,166,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
